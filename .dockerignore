@@ -1,0 +1,13 @@
+.git
+node_modules
+dist
+.build
+docker/.data
+*.pyc
+Dockerfile
+.gitignore
+.gitlab-ci.yml
+k8s
+tmp
+whisper_jax_pretrained_model
+whisper_pretrained_model/large-v2.pt

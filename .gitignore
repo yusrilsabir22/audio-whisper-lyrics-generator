@@ -1,0 +1,14 @@
+.vscode
+.vscode/*
+
+whisper_jax_pretrained_model/*
+whisper_pretrained_model/*
+
+docker/.data
+
+*/*.mp3
+*/*.mp4a
+*/*.wav
+
+*.pyc
+*/**/__pycache__

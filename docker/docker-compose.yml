@@ -1,0 +1,17 @@
+---
+version: '3'
+services:
+  redis:
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566-4584:4566-4584"
+    environment:
+      - SERVICES=s3,ses
+      - DATA_DIR=/var/lib/localstack/data
+    volumes:
+      - ./.data/localstack:/var/lib/localstack/data
+      - ./:/docker-entrypoint-initaws.d/
