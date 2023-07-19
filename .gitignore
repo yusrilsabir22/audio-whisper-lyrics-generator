@@ -1,11 +1,14 @@
 .vscode
 .vscode/*
+.venv
 
 whisper_jax_pretrained_model/*
 whisper_pretrained_model/*
 
 docker/.data
+*test-dev
 
+*.mp3
 */*.mp3
 */*.mp4a
 */*.wav

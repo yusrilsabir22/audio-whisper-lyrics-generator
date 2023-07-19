@@ -1,4 +1,7 @@
 .git
+.vscode
+.vscode/*
+.git/*
 node_modules
 dist
 .build
@@ -11,3 +14,4 @@ k8s
 tmp
 whisper_jax_pretrained_model
 whisper_pretrained_model/large-v2.pt
+.venv

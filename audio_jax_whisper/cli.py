@@ -1,17 +1,7 @@
 import fire
 import gevent
-import time
-from audio_jax_whisper.utils import SequentialExecution
 import gevent.monkey
 gevent.monkey.patch_all()
-
-
-def test():
-    import inspect
-    with SequentialExecution(inspect.currentframe()):
-        print("a")
-        time.sleep(2)
-        print("b")
 
 
 def run_celery():

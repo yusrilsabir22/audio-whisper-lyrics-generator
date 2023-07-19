@@ -1,6 +1,8 @@
 #!/bin/sh -e
 
+docker build . -t audio-jax-whisper:1.0.0
+
 docker-compose \
-    --project-name audio-jax-whisper \
+    --project-name audio-whisper-dev \
     --file docker/docker-compose.yml \
     up --detach --remove-orphans

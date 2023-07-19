@@ -7,7 +7,8 @@ from celery import Celery
 
 def make_celery(app):
     celery = Celery(app.import_name)
-    celery.conf.update(app.config["CELERY_CONFIG"])
+    cfg = {"broker_url": f"redis://{app.config.get('REDIS_URL')}", "result_backend": f"redis://{app.config.get('REDIS_URL')}"}
+    celery.conf.update(cfg)
 
     class ContextTask(celery.Task):
         def __call__(self, *args, **kwargs):

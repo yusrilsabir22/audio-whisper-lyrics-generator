@@ -25,7 +25,9 @@ def transcribe():
     audio_url = request.args.get("audio_url")
     assert audio_url != None
     language = request.args.get("language")
-    cb_url = url_for("main.bg_hook", _external=True, secret="test")
+    default_cb_url = url_for("main.bg_hook", _external=True, secret="test")
+    cb_url = request.args.get("cb_url", default_cb_url)
+
     data = dict(
         audio_url=audio_url,
         cb_url=cb_url,

@@ -15,3 +15,29 @@ services:
     volumes:
       - ./.data/localstack:/var/lib/localstack/data
       - ./:/docker-entrypoint-initaws.d/
+  web:
+    image: audio-jax-whisper:1.0.0
+    command: web
+    ports:
+      - "5002:5002"
+    depends_on:
+      - redis
+      - localstack
+  celery:
+    image: audio-jax-whisper:1.0.0
+    environment:
+      - REDIS_URL=redis:6379
+    command: run_celery
+    links:
+      - redis
+  flower:
+    image: audio-jax-whisper:1.0.0
+    command: run_flower
+    environment:
+      - FLOWER_UNAUTHENTICATED_API=true
+      - REDIS_URL=redis:6379
+    ports:
+      - "5555:5555"
+    links:
+      - redis
+  

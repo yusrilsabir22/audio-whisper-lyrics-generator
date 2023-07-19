@@ -3,4 +3,4 @@
 export PYTHONPATH=$(pwd)
 
 set -a
-. ./secrets/dev-env && exec poetry run python audio_jax_whisper/cli.py $@
+. ./secrets/dev-env && exec poetry run python -m audio_jax_whisper.cli $@
