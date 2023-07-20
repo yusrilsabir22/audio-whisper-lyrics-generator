@@ -36,6 +36,9 @@ def transcribe_audio(self, data):
     #     return result
 
     # post the result to callback url or cb_url
-    requests.post(cb_url, json=result['segments'])
+    requests.post(cb_url, json={
+        "videoId": audio_url.split("/")[-1],
+        "data": result['segments']
+    })
     
     return "Done"
